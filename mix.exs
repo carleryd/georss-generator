@@ -14,7 +14,11 @@ defmodule GeorssGenerator.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications:
+      [:logger,
+       :httpoison
+      ]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +31,9 @@ defmodule GeorssGenerator.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      { :feeder_ex, "~> 0.0.2" },
+      { :httpoison, ">= 0.5.0" }
+    ]
   end
 end
