@@ -1,0 +1,2 @@
+defmodule GeorssGenerator do
+end
