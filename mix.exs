@@ -1,4 +1,4 @@
-defmodule GeorssGenerator.Mixfile do
+defmodule Generator.Mixfile do
   use Mix.Project
 
   def project do
@@ -33,7 +33,8 @@ defmodule GeorssGenerator.Mixfile do
   defp deps do
     [
       { :feeder_ex, "~> 0.0.2" },
-      { :httpoison, ">= 0.5.0" }
+      { :httpoison, ">= 0.5.0" },
+      { :scrape, "~> 1.0" }
     ]
   end
 end
