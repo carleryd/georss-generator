@@ -7,7 +7,7 @@ defmodule FeederEx do
   defmodule Entry do
     defstruct  author: nil, duration: nil, enclosure: nil, id: nil,
       image: nil, link: nil, subtitle: nil, summary: nil, title: nil,
-      updated: nil, category: nil, latitude: nil
+      updated: nil, category: nil, latitude: nil, longitude: nil
   end
 
   defmodule Enclosure do

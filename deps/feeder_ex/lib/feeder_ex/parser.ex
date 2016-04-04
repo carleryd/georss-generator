@@ -18,7 +18,7 @@ defmodule FeederEx.Parser do
   end
 
   def event({:entry,
-             {:entry, author, duration, enclosure, id, image, link, subtitle, summary, title, updated, category, latitude}},
+             {:entry, author, duration, enclosure, id, image, link, subtitle, summary, title, updated, category, latitude, longitude}},
             {feed, entries}) do
     entry = %FeederEx.Entry{
                  author: undefined_to_nil(author),
@@ -32,7 +32,8 @@ defmodule FeederEx.Parser do
                  title: undefined_to_nil(title),
                  updated: undefined_to_nil(updated),
                  category: undefined_to_nil(category),
-                 latitude: undefined_to_nil(latitude)
+                 latitude: undefined_to_nil(latitude),
+                 longitude: undefined_to_nil(longitude)
              }
     {feed, [entry | entries]}
   end

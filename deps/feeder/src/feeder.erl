@@ -40,9 +40,8 @@
   title :: undefined | binary(),
   updated :: undefined | binary(),
   category :: undefined | binary(),
-  latitude :: undefined | binary()
-  % latitude :: 5 | binary(),
-  % longitude :: undefined | binary()
+  latitude :: undefined | binary(),
+  longitude :: undefined | binary()
 }).
 
 -record(state, {
@@ -132,6 +131,8 @@ entry(E, category, State) ->
   update(E, #entry.category, State#state.chars);
 entry(E, latitude, State) ->
   update(E, #entry.latitude, State#state.chars);
+entry(E, longitude, State) ->
+  update(E, #entry.longitude, State#state.chars);
 entry(E, _, _) ->
   E.
 
@@ -256,6 +257,7 @@ qname({_, "updated"}) -> updated;
 qname({_, "url"}) -> url;
 qname({_, "category"}) -> category;
 qname({_, "geo:lat"}) -> latitude;
+qname({_, "geo:long"}) -> longitude;
 qname({_, _}) -> undefined.
 
 event(startDocument, _, S) ->
@@ -333,6 +335,7 @@ qname_test() -> q([
   {undefined, ["wtf", "", "!"]},
   {updated, ["updated", "pubDate"]},
   {category, ["category"]},
-  {latitude, ["geo:lat"]}
+  {latitude, ["geo:lat"]},
+  {longitude, ["geo:long"]}
 ]).
 -endif.
